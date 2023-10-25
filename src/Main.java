@@ -7,9 +7,10 @@ public class Main {
 
         Main main = new Main();
         System.out.println(main.getPercentGreaterMiddle(array1));
+
         double[][] matrix = main.single(7);
 
-        String test = "primer stroki";
+        String test = null;
         System.out.println(main.capitalize(test));
     }
 
@@ -37,8 +38,15 @@ public class Main {
     }
 
     public String capitalize(String str) {
+        if (str == null) {
+            return null;
+        }
+
         String[] words = str.split(" ");
         for (int i = 0; i < words.length; i++) {
+            if (words[i].length() < 2) {
+                continue;
+            }
             String firstChar = words[i].substring(0, 1);
             firstChar = firstChar.toUpperCase();
             words[i] = firstChar + words[i].substring(1);
