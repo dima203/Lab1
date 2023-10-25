@@ -1,17 +1,32 @@
+import java.util.Scanner;
 import java.util.Arrays;
 
 
 public class Main {
     public static void main(String[] args) {
-        int[] array1 = {3, 3, 3, 6, 8, 1};
+        Scanner in = new Scanner(System.in);
 
+        int[] array = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            array[i] = Integer.parseInt(args[i]);
+        }
         Main main = new Main();
-        System.out.println(main.getPercentGreaterMiddle(array1));
+        System.out.println(main.getPercentGreaterMiddle(array));
 
-        double[][] matrix = main.single(7);
+        int n = in.nextInt();
+        double[][] matrix = main.single(n);
+        for (double[] line : matrix) {
+            for (double number : line) {
+                System.out.print(number);
+                System.out.print("\t");
+            }
+            System.out.println();
+        }
 
-        String test = null;
-        System.out.println(main.capitalize(test));
+        in.nextLine();
+        String str = in.nextLine();
+        System.out.println(main.capitalize(str));
+        in.close();
     }
 
     public float getPercentGreaterMiddle(int[] numbers) {
